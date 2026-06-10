@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Akshu Tech Solutions – Transforming Ideas Into Digital Solutions. Custom websites, software, and digital products for every business."/>
+<meta name="keywords" content="Akshu Tech Solutions, web development, software development, school website, hospital website, e-commerce, custom software, Delhi"/>
+<meta name="author" content="Akshu Tech Solutions"/>
+<title>Akshu Tech Solutions | Transforming Ideas Into Digital Solutions</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#F97316;
+  --orange2:#EA580C;
+  --navy:#1B2A4A;
+  --navy2:#243358;
+  --accent-grd:linear-gradient(135deg,#F97316,#EA580C);
+  --navy-grd:linear-gradient(135deg,#1B2A4A,#243358);
+  --bg:#FAFBFF;
+  --bg2:#F4F6FC;
+  --bg3:#EBF0FA;
+  --surface:#FFFFFF;
+  --surface2:#F0F4FF;
+  --border:rgba(27,42,74,.08);
+  --border2:rgba(27,42,74,.15);
+  --text:#0F1E38;
+  --text2:#3A4E72;
+  --text3:#8A9BBF;
+  --shadow:0 4px 30px rgba(27,42,74,.07);
+  --shadow-orange:0 8px 30px rgba(249,115,22,.25);
+  --card-radius:16px;
+  --tr:.3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;line-height:1.15}
+.accent-text{background:var(--accent-grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.navy-text{background:var(--navy-grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── NAVBAR ── */
+.navbar{background:rgba(250,251,255,.97);backdrop-filter:blur(20px);padding:14px 0;transition:all var(--tr);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(27,42,74,.06)}
+.navbar.scrolled{background:rgba(250,251,255,.99);padding:11px 0;box-shadow:0 2px 24px rgba(27,42,74,.1)}
+.navbar-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-logo-img{height:44px;width:auto;object-fit:contain}
+.brand-logo-fallback{height:44px;display:flex;align-items:center;font-family:'Syne',sans-serif;font-weight:800;font-size:18px}
+.brand-logo-fallback .a-letter{color:var(--orange);font-size:28px}
+.brand-logo-fallback .rest{color:var(--navy)}
+.nav-link{color:var(--text2)!important;font-size:14px;font-weight:500;padding:8px 14px!important;border-radius:8px;transition:all var(--tr)}
+.nav-link:hover,.nav-link.active{color:var(--orange)!important;background:rgba(249,115,22,.07)}
+.btn-contact-nav{background:var(--accent-grd)!important;color:#fff!important;padding:9px 22px!important;border-radius:9px!important;font-weight:600!important;box-shadow:var(--shadow-orange)}
+.btn-contact-nav:hover{opacity:.88;transform:translateY(-1px)}
+.navbar-toggler{background:var(--surface);border:1px solid var(--border2);padding:8px 10px;border-radius:8px}
+
+/* ── HERO ── */
+.hero-section{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:110px 0 70px;background:linear-gradient(160deg,#0F1E38 0%,#1B2A4A 45%,#243358 100%)}
+.hero-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-particles::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(249,115,22,.12) 0%,transparent 60%)}
+.hero-particles::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(249,115,22,.07) 0%,transparent 50%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.3);border-radius:100px;padding:7px 16px;font-size:13px;color:#FFB27A;margin-bottom:24px}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0;animation:ping 1.5s ease-in-out infinite}
+@keyframes ping{0%,100%{box-shadow:0 0 0 3px rgba(249,115,22,.2)}50%{box-shadow:0 0 0 6px rgba(249,115,22,.07)}}
+.hero-title{font-size:clamp(2.6rem,6vw,5rem);font-weight:800;line-height:1.05;margin-bottom:22px;color:#fff}
+.hero-title .highlight{background:var(--accent-grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-tagline{font-size:18px;color:rgba(255,255,255,.65);margin-bottom:16px;font-weight:400}
+.hero-desc{color:rgba(255,255,255,.55);font-size:16px;max-width:540px;margin-bottom:36px;line-height:1.8}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.btn-primary-custom{background:var(--accent-grd);color:#fff;border:none;padding:14px 28px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:all var(--tr);box-shadow:var(--shadow-orange)}
+.btn-primary-custom:hover{color:#fff;transform:translateY(-2px);box-shadow:0 14px 40px rgba(249,115,22,.4)}
+.btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25);padding:14px 28px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:all var(--tr)}
+.btn-outline-white:hover{color:#fff;border-color:var(--orange);background:rgba(249,115,22,.1)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:0}
+.stat-item{text-align:center;padding:0 28px 0 0}
+.stat-item:not(:last-child){border-right:1px solid rgba(255,255,255,.12);margin-right:28px}
+.stat-num{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;background:var(--accent-grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-suffix{font-size:18px;font-weight:700;color:var(--orange)}
+.stat-label{display:block;font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+
+/* ── HERO VISUAL ── */
+.hero-visual{position:relative;z-index:1;display:flex;justify-content:center;align-items:center}
+.hero-logo-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:44px 40px;text-align:center;backdrop-filter:blur(20px);position:relative}
+.hero-logo-card::before{content:'';position:absolute;inset:-1px;border-radius:25px;background:linear-gradient(135deg,rgba(249,115,22,.3),transparent,rgba(249,115,22,.1));z-index:-1}
+.hero-logo-card img{width:220px;height:auto;filter:drop-shadow(0 8px 24px rgba(249,115,22,.3))}
+.logo-tagline-card{font-size:13px;color:rgba(255,255,255,.5);margin-top:16px;letter-spacing:.06em;text-transform:uppercase}
+.float-service{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:#fff;backdrop-filter:blur(10px);animation:floatUp 3s ease-in-out infinite;white-space:nowrap}
+.float-service i{width:28px;height:28px;border-radius:8px;background:var(--accent-grd);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.fs1{top:-20px;left:-30px;animation-delay:.3s}
+.fs2{top:20%;right:-40px;animation-delay:.8s}
+.fs3{bottom:20%;left:-40px;animation-delay:1.3s}
+.fs4{bottom:-20px;right:-10px;animation-delay:.6s}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* ── SECTIONS ── */
+.section-pad{padding:96px 0}
+.section-alt{background:var(--bg2)}
+.section-dark{background:linear-gradient(160deg,#0F1E38,#1B2A4A);color:#fff}
+.section-label{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--orange);background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.section-label-white{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--orange);background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.3);border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.section-title{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;margin-bottom:14px}
+.section-subtitle{color:var(--text2);font-size:16px;max-width:580px;margin:0 auto}
+.section-subtitle-white{color:rgba(255,255,255,.55);font-size:16px;max-width:580px;margin:0 auto}
+
+/* ── GLASS CARD ── */
+.glass-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--card-radius);transition:all var(--tr);box-shadow:var(--shadow)}
+.glass-card:hover{border-color:rgba(249,115,22,.2);transform:translateY(-4px);box-shadow:0 16px 50px rgba(27,42,74,.1)}
+
+/* ── ABOUT / WHY ── */
+.about-stat-card{padding:28px;text-align:center}
+.about-stat-num{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;background:var(--accent-grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.about-stat-label{font-size:13px;color:var(--text2);margin-top:6px}
+.about-desc{color:var(--text2);font-size:15.5px;line-height:1.85;margin-bottom:16px}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14.5px}
+.check-item:last-child{border-bottom:none}
+.check-item i{color:var(--orange);font-size:15px;flex-shrink:0;margin-top:3px}
+
+/* ── SERVICES ── */
+.service-card{padding:30px 26px;height:100%;position:relative;overflow:hidden;cursor:default}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-grd);transform:scaleX(0);transition:transform var(--tr);transform-origin:left}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:60px;height:60px;border-radius:16px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.15);display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--orange);margin-bottom:20px;transition:all var(--tr)}
+.service-card:hover .service-icon{background:var(--accent-grd);color:#fff;border-color:transparent;box-shadow:var(--shadow-orange)}
+.service-card h3{font-size:17px;font-weight:700;margin-bottom:10px;color:var(--text)}
+.service-card p{font-size:13.5px;color:var(--text2);line-height:1.75;margin-bottom:18px}
+.service-tags{display:flex;flex-wrap:wrap;gap:7px}
+.service-tags span{background:var(--bg3);border:1px solid var(--border2);border-radius:100px;padding:3px 11px;font-size:12px;color:var(--text2)}
+
+/* ── PROCESS ── */
+.process-card{padding:32px 28px;position:relative;overflow:hidden}
+.process-num{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;color:rgba(249,115,22,.08);position:absolute;top:16px;right:20px;line-height:1}
+.process-icon{width:52px;height:52px;border-radius:14px;background:var(--accent-grd);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;margin-bottom:18px;box-shadow:var(--shadow-orange)}
+.process-card h4{font-size:17px;font-weight:700;margin-bottom:8px}
+.process-card p{font-size:13.5px;color:var(--text2);line-height:1.75}
+
+/* ── PORTFOLIO / PROJECTS ── */
+.project-card{overflow:hidden}
+.project-header{padding:22px 24px;display:flex;align-items:center;justify-content:space-between}
+.project-icon-wrap{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff}
+.project-tag{background:rgba(249,115,22,.1);color:var(--orange);font-size:12px;font-weight:600;padding:3px 10px;border-radius:100px;border:1px solid rgba(249,115,22,.2)}
+.project-year{font-size:12px;color:var(--text3);margin-top:4px;text-align:right}
+.project-body{padding:0 24px 20px}
+.project-body h3{font-size:17px;font-weight:700;margin-bottom:9px}
+.project-body p{font-size:13.5px;color:var(--text2);margin-bottom:14px;line-height:1.75}
+.project-tech{display:flex;flex-wrap:wrap;gap:7px}
+.project-tech span{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:3px 9px;font-size:12px;color:var(--text2)}
+.project-footer{padding:14px 24px;border-top:1px solid var(--border)}
+.project-features{display:flex;flex-wrap:wrap;gap:10px}
+.project-features span{font-size:12.5px;color:var(--text2);display:flex;align-items:center;gap:5px}
+.project-features i{color:#22c55e;font-size:11px}
+
+/* ── TESTIMONIAL ── */
+.testi-card{padding:32px;position:relative}
+.testi-quote{font-size:44px;color:var(--orange);opacity:.2;line-height:1;margin-bottom:14px}
+.testi-text{font-size:15px;color:var(--text2);font-style:italic;line-height:1.8;margin-bottom:20px}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-avatar{width:46px;height:46px;border-radius:50%;background:var(--accent-grd);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:#fff;flex-shrink:0}
+.testi-author strong{display:block;font-size:15px;font-weight:700}
+.testi-author span{font-size:13px;color:var(--text3)}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--accent-grd);padding:70px 0;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,.15)'/%3E%3C/svg%3E") repeat;opacity:.4}
+.cta-band h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:#fff;margin-bottom:12px}
+.cta-band p{color:rgba(255,255,255,.75);font-size:17px;margin-bottom:32px}
+.btn-white{background:#fff;color:var(--orange);border:none;padding:14px 30px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:all var(--tr)}
+.btn-white:hover{color:var(--orange2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.btn-outline-white2{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);padding:14px 30px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:all var(--tr)}
+.btn-outline-white2:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* ── CONTACT ── */
+.contact-method{padding:16px 18px;display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);border-radius:12px;margin-bottom:12px}
+.contact-method:hover{color:var(--text)}
+.method-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;flex-shrink:0}
+.method-label{display:block;font-size:12px;color:var(--text3);margin-bottom:2px}
+.method-value{font-size:14.5px;font-weight:600}
+.method-arrow{color:var(--text3);margin-left:auto;transition:all var(--tr)}
+.contact-method:hover .method-arrow{color:var(--orange);transform:translateX(4px)}
+.social-btn{width:40px;height:40px;border-radius:10px;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--text2);text-decoration:none;font-size:15px;transition:all var(--tr)}
+.social-btn:hover{background:var(--accent-grd);color:#fff;border-color:transparent;transform:translateY(-2px)}
+.contact-form-wrap{padding:34px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:7px;text-transform:uppercase;letter-spacing:.06em}
+.form-control{background:var(--bg3)!important;border:1px solid var(--border2)!important;color:var(--text)!important;border-radius:10px!important;padding:12px 15px!important;font-size:14.5px!important;transition:all var(--tr)!important}
+.form-control:focus{box-shadow:0 0 0 3px rgba(249,115,22,.15)!important;border-color:var(--orange)!important;outline:none!important}
+.form-control::placeholder{color:var(--text3)!important}
+.form-control option{background:var(--surface)}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success i{font-size:52px;color:#22c55e;margin-bottom:14px;display:block}
+.form-success h4{font-size:20px;font-weight:700;margin-bottom:7px}
+.form-success p{color:var(--text2)}
+
+/* ── FOOTER ── */
+.footer{background:var(--navy);color:rgba(255,255,255,.7)}
+.footer-top{padding:65px 0 45px}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px;text-decoration:none}
+.footer-brand img{height:40px;width:auto;filter:brightness(1.1)}
+.footer-brand-text{font-family:'Syne',sans-serif;font-weight:800;font-size:18px}
+.footer-brand-text .a{color:var(--orange)}
+.footer-brand-text .rest{color:#fff}
+.footer-desc{font-size:13.5px;color:rgba(255,255,255,.5);margin-bottom:18px;line-height:1.8}
+.footer-social{display:flex;gap:9px}
+.footer-social a{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none;transition:all var(--tr)}
+.footer-social a:hover{background:var(--orange);color:#fff;border-color:transparent}
+.footer-heading{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#fff;margin-bottom:18px}
+.footer-links{list-style:none;padding:0}
+.footer-links li{margin-bottom:9px}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13.5px;transition:color var(--tr)}
+.footer-links a:hover{color:var(--orange)}
+.footer-contact-item{display:flex;align-items:center;gap:9px;margin-bottom:12px;font-size:13.5px;color:rgba(255,255,255,.5)}
+.footer-contact-item i{color:var(--orange);width:15px;flex-shrink:0}
+.footer-contact-item a{color:rgba(255,255,255,.5);text-decoration:none;transition:color var(--tr)}
+.footer-contact-item a:hover{color:var(--orange)}
+.footer-bottom{padding:18px 0;border-top:1px solid rgba(255,255,255,.07)}
+.footer-bottom-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;color:rgba(255,255,255,.35)}
+.footer-bottom-inner a{color:var(--orange);text-decoration:none}
+
+/* ── BACK TO TOP ── */
+.back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:12px;background:var(--accent-grd);color:#fff;border:none;cursor:pointer;opacity:0;transform:translateY(16px);transition:all var(--tr);z-index:999;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:var(--shadow-orange)}
+.back-to-top.visible{opacity:1;transform:translateY(0)}
+.back-to-top:hover{transform:translateY(-3px)}
+
+/* ── SCROLL HINT ── */
+.hero-scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;z-index:1}
+.hero-scroll-hint span{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.3)}
+.scroll-line{width:1px;height:36px;background:rgba(255,255,255,.15);position:relative;overflow:hidden}
+.scroll-line span{position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--orange);animation:scrollDown 1.6s ease-in-out infinite}
+@keyframes scrollDown{0%{top:-100%}100%{top:200%}}
+
+/* ── DIVIDER ── */
+.orange-divider{width:50px;height:3px;background:var(--accent-grd);border-radius:3px;margin-bottom:20px}
+
+/* ── REVEAL ── */
+.reveal-up,.reveal-left,.reveal-right{opacity:0;transition:opacity .7s ease,transform .7s ease}
+.reveal-up{transform:translateY(28px)}
+.reveal-left{transform:translateX(-28px)}
+.reveal-right{transform:translateX(28px)}
+.revealed{opacity:1!important;transform:none!important}
+
+/* ── RESPONSIVE ── */
+@media(max-width:991px){
+  .hero-visual{margin-top:50px}
+  .float-service{display:none}
+}
+@media(max-width:767px){
+  .section-pad{padding:65px 0}
+  .hero-stats{gap:14px}
+  .stat-item{padding:0;border:none!important;margin:0!important}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .footer-bottom-inner{flex-direction:column;text-align:center}
+  .contact-form-wrap{padding:20px}
+  .cta-band{padding:50px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#hero">
+      <img src="akshu.png" alt="Akshu Tech Solutions" style="height:44px;width:auto;object-fit:contain"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why-us">Why Us</a></li>
+        <li class="nav-item ms-lg-2"><a class="nav-link btn-contact-nav" href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero-section">
+  <div class="hero-particles"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7 hero-content">
+        <div class="hero-badge reveal-up">
+          <span class="badge-dot"></span> Delhi-based Software Company
+        </div>
+        <h1 class="hero-title reveal-up">
+          Transforming Ideas<br>Into <span class="highlight">Digital Solutions</span>
+        </h1>
+        <p class="hero-tagline reveal-up">Akshu Tech Solutions</p>
+        <p class="hero-desc reveal-up">We build custom websites, enterprise software, fintech platforms, and digital products — tailored for schools, hospitals, restaurants, businesses, and startups. Whatever you need, we can build it.</p>
+        <div class="hero-actions reveal-up">
+          <a href="#contact" class="btn-primary-custom">Get a Free Quote <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#services" class="btn-outline-white">Our Services <i class="fa-solid fa-grid-2"></i></a>
+        </div>
+        <div class="hero-stats reveal-up">
+          <div class="stat-item">
+            <span class="stat-num" data-target="20">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="9">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Services</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="100">0</span><span class="stat-suffix">%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="2">0</span><span class="stat-suffix">+</span>
+            <span class="stat-label">Years Exp.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 hero-visual reveal-right">
+        <div class="hero-logo-card">
+          <img src="akshu.png" alt="Akshu Tech Solutions Logo" style="width:240px;height:auto;filter:drop-shadow(0 8px 24px rgba(249,115,22,.3))"/>
+          <p class="logo-tagline-card">Transforming Ideas Into Digital Solutions</p>
+        </div>
+        <div class="float-service fs1"><i class="fa-solid fa-graduation-cap"></i> School ERP</div>
+        <div class="float-service fs2"><i class="fa-solid fa-coins"></i> Fintech</div>
+        <div class="float-service fs3"><i class="fa-solid fa-cart-shopping"></i> E-Commerce</div>
+        <div class="float-service fs4"><i class="fa-solid fa-utensils"></i> Restaurant</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"><span></span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal-left">
+        <div class="row g-4">
+          <div class="col-6"><div class="about-stat-card glass-card"><div class="about-stat-num">20+</div><div class="about-stat-label">Projects Delivered</div></div></div>
+          <div class="col-6"><div class="about-stat-card glass-card"><div class="about-stat-num">9+</div><div class="about-stat-label">Service Categories</div></div></div>
+          <div class="col-6"><div class="about-stat-card glass-card"><div class="about-stat-num">100%</div><div class="about-stat-label">Client Satisfaction</div></div></div>
+          <div class="col-6"><div class="about-stat-card glass-card"><div class="about-stat-num">2+</div><div class="about-stat-label">Years Experience</div></div></div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal-right">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">We Build Software That <span class="accent-text">Grows Your Business</span></h2>
+        <div class="orange-divider"></div>
+        <p class="about-desc">Akshu Tech Solutions is a Delhi-based software development company specializing in custom web development, enterprise software, and digital transformation. We work with schools, hospitals, restaurants, hotels, startups, and businesses of all sizes.</p>
+        <p class="about-desc">From a simple business website to a full-scale fintech platform — we design, develop, and deliver solutions that are fast, secure, and built to last. Our team brings hands-on expertise in .NET, ASP.NET, SQL Server, and modern web technologies.</p>
+        <div class="mt-3">
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i><span>Custom solutions tailored to your exact business needs</span></div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i><span>End-to-end delivery — design, development &amp; deployment</span></div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i><span>Affordable pricing with no compromise on quality</span></div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i><span>Post-delivery support &amp; maintenance included</span></div>
+        </div>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="#contact" class="btn-primary-custom">Start a Project <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#projects" class="btn-outline-white" style="color:var(--text);border-color:var(--border2)">View Our Work <i class="fa-solid fa-external-link"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section-pad section-alt">
+  <div class="container">
+    <div class="section-header text-center reveal-up mb-5">
+      <div class="section-label">What We Build</div>
+      <h2 class="section-title">Our <span class="accent-text">Services</span></h2>
+      <p class="section-subtitle">From websites to full enterprise software — we build everything your business needs to go digital.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>School / College Website</h3>
+          <p>Complete school management portal with admissions, fee collection, attendance, student portal, parent login, and admin dashboard — all in one.</p>
+          <div class="service-tags"><span>School ERP</span><span>Parent Portal</span><span>Fee Management</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card" style="border-top:3px solid var(--orange)">
+          <div class="service-icon"><i class="fa-solid fa-dumbbell"></i></div>
+          <h3>Gym Website</h3>
+          <p>Modern gym website with membership management, trainer profiles, class schedules, online payment, and lead generation forms to grow your fitness business.</p>
+          <div class="service-tags"><span>Membership</span><span>Schedules</span><span>Online Payment</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="fa-solid fa-hospital"></i></div>
+          <h3>Hospital / Clinic Website</h3>
+          <p>Professional healthcare website with doctor profiles, appointment booking, patient management, and online consultation integration.</p>
+          <div class="service-tags"><span>Appointment</span><span>Patient Mgmt</span><span>Doctor Portal</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
+          <h3>Hotel &amp; Restaurant Website</h3>
+          <p>Full restaurant management system with menu management, table booking, order processing, billing, kitchen display, inventory, and sales analytics.</p>
+          <div class="service-tags"><span>Menu</span><span>Billing</span><span>Inventory</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+          <h3>Real Estate Website</h3>
+          <p>Property listing platform with search filters, property details, agent management, lead capture forms, and a powerful admin panel for property management.</p>
+          <div class="service-tags"><span>Property Listing</span><span>Lead Capture</span><span>Admin Panel</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <h3>Business Company Website</h3>
+          <p>Professional corporate website with dynamic CMS, SEO optimization, contact management, and a sleek design that builds credibility and trust.</p>
+          <div class="service-tags"><span>CMS</span><span>SEO</span><span>Responsive</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+          <h3>E-Commerce Website</h3>
+          <p>Full online store with product catalog, cart, payment gateway integration, order tracking, inventory management, and a comprehensive seller dashboard.</p>
+          <div class="service-tags"><span>Online Store</span><span>Payment Gateway</span><span>Order Tracking</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card" style="border-top:3px solid var(--orange)">
+          <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Custom Business Software</h3>
+          <p>Any custom software your business needs — CRM, ERP, HR management, logistics, MLM, fintech, recharge portals — built exactly to your specifications.</p>
+          <div class="service-tags"><span>CRM</span><span>ERP</span><span>Fintech</span><span>Custom</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div class="service-card glass-card">
+          <div class="service-icon"><i class="fa-solid fa-chart-bar"></i></div>
+          <h3>Billing &amp; Management Software</h3>
+          <p>Smart billing software with invoice generation, GST billing, payment tracking, expense management, reports, and multi-user access for any business type.</p>
+          <div class="service-tags"><span>GST Billing</span><span>Invoices</span><span>Reports</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="section-pad">
+  <div class="container">
+    <div class="section-header text-center reveal-up mb-5">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-title">Our <span class="accent-text">Process</span></h2>
+      <p class="section-subtitle">Simple, transparent, and deadline-driven — from your idea to a live product.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 col-lg-3 reveal-up">
+        <div class="process-card glass-card">
+          <div class="process-num">01</div>
+          <div class="process-icon"><i class="fa-solid fa-comments"></i></div>
+          <h4>Discuss &amp; Understand</h4>
+          <p>We start with a free consultation to understand your business, goals, and requirements in detail.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal-up">
+        <div class="process-card glass-card">
+          <div class="process-num">02</div>
+          <div class="process-icon"><i class="fa-solid fa-pencil-ruler"></i></div>
+          <h4>Design &amp; Plan</h4>
+          <p>We create a clear project plan with wireframes, tech stack, timeline, and cost estimate — no surprises.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal-up">
+        <div class="process-card glass-card">
+          <div class="process-num">03</div>
+          <div class="process-icon"><i class="fa-solid fa-code"></i></div>
+          <h4>Build &amp; Test</h4>
+          <p>Development with regular progress updates. Thorough testing before every delivery — zero bugs policy.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal-up">
+        <div class="process-card glass-card">
+          <div class="process-num">04</div>
+          <div class="process-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h4>Launch &amp; Support</h4>
+          <p>We deploy your product, provide training, and offer ongoing maintenance &amp; support after launch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section-pad section-alt">
+  <div class="container">
+    <div class="section-header text-center reveal-up mb-5">
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Featured <span class="accent-text">Projects</span></h2>
+      <p class="section-subtitle">Real solutions we've built for real businesses — from fintech platforms to school ERPs.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-lg-6 reveal-up">
+        <div class="project-card glass-card">
+          <div class="project-header"><div class="project-icon-wrap" style="background:#F97316"><i class="fa-solid fa-coins"></i></div><div><span class="project-tag">Fintech</span><div class="project-year">2024</div></div></div>
+          <div class="project-body"><h3>Fintech Management Platform</h3><p>Multi-service fintech platform covering AEPS, DMT, recharge, and payout with wallet management, real-time transaction tracking, commission engine, and admin dashboard.</p><div class="project-tech"><span>ASP.NET Core</span><span>C#</span><span>SQL Server</span><span>Web API</span></div></div>
+          <div class="project-footer"><div class="project-features"><span><i class="fa-solid fa-check"></i> AEPS/DMT/Recharge</span><span><i class="fa-solid fa-check"></i> Wallet System</span><span><i class="fa-solid fa-check"></i> Live Reports</span></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal-up">
+        <div class="project-card glass-card">
+          <div class="project-header"><div class="project-icon-wrap" style="background:#1B2A4A"><i class="fa-solid fa-graduation-cap"></i></div><div><span class="project-tag">School ERP</span><div class="project-year">2024</div></div></div>
+          <div class="project-body"><h3>School Management System</h3><p>Complete school ERP with admissions, attendance tracking, fee management, grade portal, parent dashboard, staff management, and automated report generation.</p><div class="project-tech"><span>ASP.NET MVC</span><span>EF Core</span><span>SQL Server</span><span>Bootstrap</span></div></div>
+          <div class="project-footer"><div class="project-features"><span><i class="fa-solid fa-check"></i> Fee Management</span><span><i class="fa-solid fa-check"></i> Parent Portal</span><span><i class="fa-solid fa-check"></i> RBAC</span></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal-up">
+        <div class="project-card glass-card">
+          <div class="project-header"><div class="project-icon-wrap" style="background:#EA580C"><i class="fa-solid fa-utensils"></i></div><div><span class="project-tag">Restaurant</span><div class="project-year">2024</div></div></div>
+          <div class="project-body"><h3>Restaurant Management System</h3><p>Full-stack restaurant software with menu management, table booking, order processing, KOT system, GST billing, inventory tracking, and detailed sales analytics.</p><div class="project-tech"><span>ASP.NET MVC</span><span>C#</span><span>SQL Server</span><span>jQuery</span></div></div>
+          <div class="project-footer"><div class="project-features"><span><i class="fa-solid fa-check"></i> KOT System</span><span><i class="fa-solid fa-check"></i> GST Billing</span><span><i class="fa-solid fa-check"></i> Inventory</span></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal-up">
+        <div class="project-card glass-card">
+          <div class="project-header"><div class="project-icon-wrap" style="background:#0EA5E9"><i class="fa-solid fa-cart-shopping"></i></div><div><span class="project-tag">E-Commerce</span><div class="project-year">2024</div></div></div>
+          <div class="project-body"><h3>E-Commerce Platform</h3><p>Multi-vendor online store with product catalog, cart, payment gateway integration, order tracking, seller dashboard, inventory management, and coupon engine.</p><div class="project-tech"><span>ASP.NET Core</span><span>SQL Server</span><span>REST API</span><span>Bootstrap</span></div></div>
+          <div class="project-footer"><div class="project-features"><span><i class="fa-solid fa-check"></i> Multi-vendor</span><span><i class="fa-solid fa-check"></i> Payment Gateway</span><span><i class="fa-solid fa-check"></i> Order Tracking</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us" class="section-pad section-dark">
+  <div class="container">
+    <div class="section-header text-center reveal-up mb-5">
+      <div class="section-label-white">Why Choose Us</div>
+      <h2 class="section-title" style="color:#fff">Why <span class="accent-text">Akshu Tech?</span></h2>
+      <p class="section-subtitle-white">We're not just developers — we're your technology partner.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 26px">
+          <div style="width:52px;height:52px;border-radius:14px;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.25);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--orange);margin-bottom:18px"><i class="fa-solid fa-bullseye"></i></div>
+          <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:10px">Business-First Approach</h3>
+          <p style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.75">We understand your business before writing a single line of code. Your goals drive every technical decision we make.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div style="background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);border-radius:16px;padding:30px 26px">
+          <div style="width:52px;height:52px;border-radius:14px;background:var(--accent-grd);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;margin-bottom:18px;box-shadow:var(--shadow-orange)"><i class="fa-solid fa-rupee-sign"></i></div>
+          <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:10px">Affordable Pricing</h3>
+          <p style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.75">Premium quality software at startup-friendly prices. Transparent quotes — no hidden charges, no surprises.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 26px">
+          <div style="width:52px;height:52px;border-radius:14px;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.25);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--orange);margin-bottom:18px"><i class="fa-solid fa-bolt"></i></div>
+          <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:10px">Fast Delivery</h3>
+          <p style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.75">We commit to deadlines and deliver on time. Regular updates keep you in the loop throughout development.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 26px">
+          <div style="width:52px;height:52px;border-radius:14px;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.25);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--orange);margin-bottom:18px"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:10px">Secure &amp; Scalable</h3>
+          <p style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.75">Every product is built with security best practices and designed to scale as your business grows.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 26px">
+          <div style="width:52px;height:52px;border-radius:14px;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.25);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--orange);margin-bottom:18px"><i class="fa-solid fa-headset"></i></div>
+          <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:10px">Post-Launch Support</h3>
+          <p style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.75">We don't disappear after delivery. Ongoing support, bug fixes, and feature additions whenever you need us.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal-up">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 26px">
+          <div style="width:52px;height:52px;border-radius:14px;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.25);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--orange);margin-bottom:18px"><i class="fa-solid fa-handshake"></i></div>
+          <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:10px">Long-term Partnership</h3>
+          <p style="font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.75">We build relationships, not just software. Our clients come back because they trust us to deliver, every time.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="row mt-5">
+      <div class="col-lg-8 mx-auto reveal-up">
+        <div class="testi-card glass-card">
+          <div class="testi-quote"><i class="fa-solid fa-quote-left"></i></div>
+          <p class="testi-text">"Akshu Tech Solutions built our school management system from scratch. The delivery was on time, the software is smooth, and their support is excellent. Highly recommended for any institution looking to go digital."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RK</div>
+            <div><strong>Ramesh Kumar</strong><span>Principal, Delhi Public School</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band reveal-up">
+  <div class="container text-center" style="position:relative;z-index:1">
+    <h2>Ready to Build Your Digital Product?</h2>
+    <p>Tell us your idea — we'll turn it into reality. Free consultation, no commitment.</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a href="#contact" class="btn-white">Get a Free Quote <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="tel:+918630798129" class="btn-outline-white2"><i class="fa-solid fa-phone"></i> Call Us Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="section-header text-center reveal-up mb-5">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's <span class="accent-text">Start Building</span></h2>
+      <p class="section-subtitle">Share your project idea and we'll get back to you within 24 hours with a free quote.</p>
+    </div>
+    <div class="row g-5 mt-2">
+      <div class="col-lg-5 reveal-left">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:20px">Contact Us</h3>
+        <a href="tel:+918630798129" class="contact-method glass-card">
+          <div class="method-icon" style="background:linear-gradient(135deg,#F97316,#EA580C)"><i class="fa-solid fa-phone"></i></div>
+          <div><span class="method-label">Phone / WhatsApp</span><span class="method-value">+91 8630798129</span></div>
+          <i class="fa-solid fa-arrow-right method-arrow"></i>
+        </a>
+        <a href="mailto:akshutechsolutions@gmail.com" class="contact-method glass-card">
+          <div class="method-icon" style="background:linear-gradient(135deg,#1B2A4A,#243358)"><i class="fa-solid fa-envelope"></i></div>
+          <div><span class="method-label">Email</span><span class="method-value">akshutechsolutions@gmail.com</span></div>
+          <i class="fa-solid fa-arrow-right method-arrow"></i>
+        </a>
+        <div class="contact-method glass-card">
+          <div class="method-icon" style="background:linear-gradient(135deg,#F0A500,#F97316)"><i class="fa-solid fa-location-dot"></i></div>
+          <div><span class="method-label">Location</span><span class="method-value">Delhi, India — Available Pan India</span></div>
+        </div>
+        <div class="mt-4">
+          <p class="mb-2" style="font-size:13.5px;color:var(--text2)">Follow us:</p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/akshutechsolutions" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:akshutechsolutions@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+918630798129" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal-right">
+        <div class="contact-form-wrap glass-card">
+          <h3 style="font-size:20px;font-weight:700;margin-bottom:22px">Request a Free Quote</h3>
+          <form id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6"><div class="form-group"><label>Your Name *</label><input type="text" name="name" class="form-control" placeholder="John Doe" required/></div></div>
+              <div class="col-md-6"><div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required/></div></div>
+              <div class="col-md-6"><div class="form-group"><label>Email Address</label><input type="email" name="email" class="form-control" placeholder="john@example.com"/></div></div>
+              <div class="col-md-6"><div class="form-group"><label>Business Type</label><input type="text" name="business" class="form-control" placeholder="School / Restaurant / Startup..."/></div></div>
+              <div class="col-12"><div class="form-group"><label>Service Required *</label>
+                <select name="service" class="form-control" required>
+                  <option value="">Select a Service</option>
+                  <option>School / College Website</option>
+                  <option>Gym Website</option>
+                  <option>Hospital / Clinic Website</option>
+                  <option>Hotel &amp; Restaurant Website</option>
+                  <option>Real Estate Website</option>
+                  <option>Business Company Website</option>
+                  <option>E-Commerce Website</option>
+                  <option>Custom Business Software</option>
+                  <option>Billing &amp; Management Software</option>
+                  <option>Other</option>
+                </select>
+              </div></div>
+              <div class="col-12"><div class="form-group"><label>Project Details *</label><textarea name="message" class="form-control" rows="4" placeholder="Tell us about your project, requirements, budget, and timeline..." required></textarea></div></div>
+              <div class="col-12"><button type="submit" class="btn-primary-custom w-100" style="justify-content:center;border-radius:12px;padding:15px;font-size:16px"><span>Send Request</span> <i class="fa-solid fa-paper-plane ms-2"></i></button></div>
+            </div>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <i class="fa-solid fa-circle-check"></i>
+            <h4>Request Sent!</h4>
+            <p>Thank you for reaching out. We'll contact you within 24 hours with a free quote.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <img src="aakshu.png" alt="Akshu Tech Solutions" style="height:82px;width:auto;filter:brightness(1.1)"/>
+          </div>
+          <p class="footer-desc">Transforming Ideas Into Digital Solutions. We build websites, apps, and software for schools, hospitals, restaurants, startups, and businesses across India.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/akshutechsolutions" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:akshutechsolutions@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+918630798129"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <h5 class="footer-heading">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <h5 class="footer-heading">Services</h5>
+          <ul class="footer-links">
+            <li><a href="#services">School / College Website</a></li>
+            <li><a href="#services">Hospital / Clinic</a></li>
+            <li><a href="#services">Restaurant &amp; Hotel</a></li>
+            <li><a href="#services">E-Commerce Store</a></li>
+            <li><a href="#services">Custom Software</a></li>
+            <li><a href="#services">Billing Software</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h5 class="footer-heading">Contact</h5>
+          <div class="footer-contact">
+            <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+918630798129">+91 8630798129</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:akshutechsolutions@gmail.com">akshutechsolutions@gmail.com</a></div>
+            <div class="footer-contact-item"><i class="fa-brands fa-github"></i><a href="https://github.com/akshutechsolutions" target="_blank">github.com/akshutechsolutions</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Delhi, India</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p>© 2025 <strong style="color:rgba(255,255,255,.6)">Akshu Tech Solutions</strong>. All rights reserved.</p>
+        <p>Built with <i class="fa-solid fa-heart" style="color:var(--orange)"></i> by <a href="#">Sanjeet Mishra</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// NAVBAR
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) {
+      e.preventDefault();
+      t.scrollIntoView({ behavior: 'smooth' });
+      const bs = bootstrap.Collapse.getInstance(document.getElementById('navbarNav'));
+      if (bs) bs.hide();
+    }
+  });
+});
+
+// BACK TO TOP
+document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// REVEAL
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('revealed'), parseFloat(e.target.style.getPropertyValue('--delay') || '0') * 1000);
+      ro.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => ro.observe(el));
+
+// COUNTER
+function animateCounter(el) {
+  const target = +el.dataset.target, dur = 1600;
+  let st = null;
+  function step(t) {
+    if (!st) st = t;
+    const p = Math.min((t - st) / dur, 1);
+    el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target);
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(step);
+}
+const co = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); co.unobserve(e.target); } });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num').forEach(el => co.observe(el));
+
+// ACTIVE NAV
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+  navLinks.forEach(l => {
+    l.classList.remove('active');
+    if (l.getAttribute('href') === '#' + cur) l.classList.add('active');
+  });
+}, { passive: true });
+
+// FORM
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.innerHTML = '<span>Sending...</span> <i class="fa-solid fa-spinner fa-spin ms-2"></i>';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }, 1500);
+});
+</script>
+</body>
+</html>
